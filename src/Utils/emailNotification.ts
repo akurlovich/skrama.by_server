@@ -13,40 +13,40 @@ export const emailNotification = async (data: IEmailMessage) => {
     },
   });
 
-  interface IOrder {
-    title: string,
-    price: number,
-    count: number,
-    description: string,
-  }
+  // interface IOrder {
+  //   title: string,
+  //   price: number,
+  //   count: number,
+  //   description: string,
+  // }
 
-  interface INewInfo {
-    [key: string]: string,
-  }
+  // interface INewInfo {
+  //   [key: string]: string,
+  // }
 
-  const order: IOrder[] = [];
+  // const order: IOrder[] = [];
   let totalPrice = 0;
 
   for (const item of data.items) {
     totalPrice += item.price * item.count;
-    let newDesc = await product_infoService.getAllProductInfoByProductID(item.id);
+    // let newDesc = await product_infoService.getAllProductInfoByProductID(item.id);
 
-    const newInfo: INewInfo[] = [];
+    // const newInfo: INewInfo[] = [];
     
-    for (const info of newDesc) {
-      let infoOne: INewInfo = {
-        [info.title]: info.description,
+    // for (const info of newDesc) {
+    //   let infoOne: INewInfo = {
+    //     [info.title]: info.description,
         
-      }
-      newInfo.push(infoOne)
-    }
-    let newOrder: IOrder = {
-      price: item.price,
-      title: item.title,
-      count: item.count,
-      description: JSON.stringify(newInfo),
-    };
-    order.push(newOrder);
+    //   }
+    //   newInfo.push(infoOne)
+    // }
+    // let newOrder: IOrder = {
+    //   price: item.price,
+    //   title: item.title,
+    //   count: item.count,
+    //   description: JSON.stringify(newInfo),
+    // };
+    // order.push(newOrder);
   }
 
   let message = {
@@ -61,10 +61,9 @@ export const emailNotification = async (data: IEmailMessage) => {
       <p>Почта: ${data.email}</p>
       <p>Адрес доставки: ${data.address}</p>
       <h4>Товар:</h4> 
-      <p>${order.map((item, id) => `${id + 1}. Цена: ${item.price}, количество: ${item.count}, описание: ${item.description}<br>`)}</р>
+      <p>${data.items.map((item, id) => `${id + 1}. Цена: ${item.price}, толщина: ${item.thickness}, плотность ${item.density}, размер листа ${item.size}, цвет: ${item.color}, количество: ${item.count}.<br>`)}</р>
       <h3>Сумма заказа: ${totalPrice}</h3> 
       `
-      , 
   };
 
   transporter.sendMail(message, (err) => {

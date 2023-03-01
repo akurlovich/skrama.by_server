@@ -45,6 +45,15 @@ class ProductController {
     }
   };
 
+  async updateProductByID(req: Request<{ id: string }>, res: Response, next: NextFunction) {
+    try {
+      const product = await productService.updateProductByID(req.params.id, req.body);
+      return res.json(product);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   async deleteProduct(req: Request<{ id: string }>, res: Response, next: NextFunction) {
     try {
       const product = await productService.deleteProduct(req.params.id);

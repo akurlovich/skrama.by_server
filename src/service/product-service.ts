@@ -33,6 +33,10 @@ class ProductService {
     }
   };
 
+  async updateProductByID(id: string, product: IProduct) {
+    return await productModel.findByIdAndUpdate({_id: id}, {...product}, {new: true});
+  };
+
   async deleteProduct(id: string) {
     return await productModel.findByIdAndDelete(id);
   };
