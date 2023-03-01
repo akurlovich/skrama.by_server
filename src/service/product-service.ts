@@ -33,8 +33,8 @@ class ProductService {
     }
   };
 
-  async updateProductByID(id: string, product: IProduct) {
-    return await productModel.findByIdAndUpdate({_id: id}, {...product}, {new: true});
+  async updateProductByID(id: string, price: number) {
+    return await productModel.findByIdAndUpdate({_id: id}, {price: price}, {new: true});
   };
 
   async deleteProduct(id: string) {
