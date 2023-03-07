@@ -25,7 +25,7 @@ app.use(fileUpload({}));
 app.use(cookieParser());
 app.use(cors({
   credentials: true,
-  origin: config.CLIENT_URL,
+  origin: [config.CLIENT_URL, 'http://185.179.83.227:4000', 'http://localhost:3000']
 }));
 app.use('/api', router);
 // app.use(errorMiddleware);
