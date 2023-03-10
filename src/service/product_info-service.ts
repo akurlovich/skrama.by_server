@@ -21,6 +21,10 @@ class ProductInfoService {
   async getAllProductInfoByProductID(productID: string) {
     return await product_infoModel.find({productID});
   };
+
+  async deleteProductInfos(productID: string) {
+    return await product_infoModel.deleteMany({productID: productID});
+  };
     
 };
 

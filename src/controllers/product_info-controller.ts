@@ -48,6 +48,15 @@ class ProductInfoController {
       next(error);
     }
   };
+
+  async deleteProductInfos(req: Request<{ productID: string }>, res: Response, next: NextFunction) {
+    try {
+      const del = await product_infoService.deleteProductInfos(req.params.productID);
+      return res.json(del);
+    } catch (error) {
+      next(error);
+    }
+  };
 };
 
 export default new ProductInfoController;

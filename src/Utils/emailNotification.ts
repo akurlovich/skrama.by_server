@@ -61,7 +61,7 @@ export const emailNotification = async (data: IEmailMessage) => {
       <p>Почта: ${data.email}</p>
       <p>Адрес доставки: ${data.address}</p>
       <h4>Товар:</h4> 
-      <p>${data.items.map((item, id) => `${id + 1}. Цена: ${item.price}, толщина: ${item.thickness}, плотность ${item.density}, размер листа ${item.size}, цвет: ${item.color}, количество: ${item.count}.<br>`)}</р>
+      <p>${data.items.map((item, id) => `${id + 1}. Цена: ${item.price}, товар: ${item.title}, толщина: ${item.thickness}, плотность ${item.density}, размер листа ${item.size}, цвет: ${item.color}, количество: ${item.count}.<br>`)}</р>
       <h3>Сумма заказа: ${totalPrice}</h3> 
       `
   };

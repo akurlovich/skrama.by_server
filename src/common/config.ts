@@ -7,11 +7,11 @@ dotenv.config({
 });
 
 export default {
-  PORT: process.env['PORT'] || 8089,
+  PORT: process.env['PORT'] || 4000,
   API_URL: process.env['API_URL'] || 'http://localhost:',
   NODE_ENV: process.env['NODE_ENV'],
-  // CLIENT_URL: process.env['CLIENT_URL'] || 'http://localhost:3000',
-  CLIENT_URL: process.env['CLIENT_URL'] || 'https://skrama-polikarbonat.onrender.com',
+  CLIENT_URL: process.env['CLIENT_URL'] || 'http://localhost:3000',
+  // CLIENT_URL: process.env['CLIENT_URL'] || 'https://skrama24.by',
   SALT: process.env['SALT'] || 5,
   JWT_ACCESS_SECRET_KEY: process.env['JWT_ACCESS_SECRET_KEY'] || 'access-secret-key',
   JWT_REFRESH_SECRET_KEY: process.env['JWT_REFRESH_SECRET_KEY'] || 'refresh-secret-key',
