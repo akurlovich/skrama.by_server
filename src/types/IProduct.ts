@@ -5,6 +5,7 @@ export interface IProduct extends Document {
   price: number,
   rating: number,
   count: number,
+  views: number,
   coverImage: string,
   typeID: Schema.Types.ObjectId,
   brandID: Schema.Types.ObjectId,

@@ -47,9 +47,15 @@ class ProductController {
 
   async updateProductByID(req: Request<{ id: string }>, res: Response, next: NextFunction) {
     try {
-      const { price } = req.body;
-      const product = await productService.updateProductByID(req.params.id, price);
-      return res.json(product);
+      const { price, views } = req.body;
+      if (price) {
+        const product = await productService.updateProductByID(req.params.id, price, 'price');
+        return res.json(product);
+      }
+      if (views) {
+        const product = await productService.updateProductByID(req.params.id, views, 'views');
+        return res.json(product);
+      }
     } catch (error) {
       next(error);
     }

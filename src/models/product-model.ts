@@ -16,12 +16,10 @@ const ProductSchema: Schema = new Schema<IProduct>({
     required: true,
     default: 1,
   },
-  // rating: [{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Rating',
-  //   required: true,
-  //   default: 0,
-  // }],
+  views: {
+    type: Number,
+    default: 1,
+  },
   rating: {
     type: Number,
     required: true,
