@@ -36,6 +36,15 @@ class ProductController {
     }
   };
 
+  async getAllProductsByType(req: Request<{ typeID: string }>, res: Response, next: NextFunction) {
+    try {
+      const product = await productService.getAllProductsByType(req.params.typeID);
+      return res.json(product);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   async getAllProducts(req: Request, res: Response, next: NextFunction) {
     try {
       const products = await productService.getAllProducts(req);

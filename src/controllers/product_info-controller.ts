@@ -40,6 +40,15 @@ class ProductInfoController {
     }
   };
 
+  async getAllProductsInfosByTypeID(req: Request<{ typeID: string }>, res: Response, next: NextFunction) {
+    try {
+      const productInfo = await product_infoService.getAllProductsInfoByTypeID(req.params.typeID);
+      return res.json(productInfo);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   async getAllProductInfoByProductID(req: Request<{ productID: string }>, res: Response, next: NextFunction) {
     try {
       const productInfo = await product_infoService.getAllProductInfoByProductID(req.params.productID);

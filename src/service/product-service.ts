@@ -33,6 +33,10 @@ class ProductService {
     }
   };
 
+  async getAllProductsByType(typeID: string) {
+    return await productModel.find({typeID: typeID});
+  };
+
   async updateProductByID(id: string, data: number, key: string) {
     return await productModel.findByIdAndUpdate({_id: id}, {[key]: data}, {new: true});
   };

@@ -18,6 +18,10 @@ class ProductColorService {
   async getAllProductColors() {
     return await product_colorModel.find();
   };
+
+  async getAllProductsColorsByTypeID(typeID: string) {
+    return await product_colorModel.find({typeID: typeID});
+  };
     
 };
 

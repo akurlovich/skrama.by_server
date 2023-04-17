@@ -20,8 +20,8 @@ class ProductColorController {
   async getProductColor(req: Request, res: Response, next: NextFunction) {
     try {
       const { value } = req.body;
-      const brand = await product_colorService.getProductColor(value);
-      return res.json(brand);
+      const color = await product_colorService.getProductColor(value);
+      return res.json(color);
     } catch (error) {
       next(error);
     }
@@ -29,8 +29,8 @@ class ProductColorController {
 
   async getProductColorByID(req: Request<{ id: string }>, res: Response, next: NextFunction) {
     try {
-      const brand = await product_colorService.getProductColorByID(req.params.id);
-      return res.json(brand);
+      const color = await product_colorService.getProductColorByID(req.params.id);
+      return res.json(color);
     } catch (error) {
       next(error);
     }
@@ -38,8 +38,17 @@ class ProductColorController {
 
   async getAllProductColors(req: Request, res: Response, next: NextFunction) {
     try {
-      const brands = await product_colorService.getAllProductColors();
-      return res.json(brands);
+      const colors = await product_colorService.getAllProductColors();
+      return res.json(colors);
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  async getAllProductsColorsByTypeID(req: Request<{ typeID: string }>, res: Response, next: NextFunction) {
+    try {
+      const colors = await product_colorService.getAllProductsColorsByTypeID(req.params.typeID);
+      return res.json(colors);
     } catch (error) {
       next(error);
     }

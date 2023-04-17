@@ -6,5 +6,6 @@ router.post('/color', product_colorController.addProductColor);
 router.get('/color', product_colorController.getProductColor);
 router.get('/color/:id', product_colorController.getProductColorByID);
 router.get('/colors', product_colorController.getAllProductColors);
+router.get('/colors/:typeID', product_colorController.getAllProductsColorsByTypeID);
 
 export default router;
