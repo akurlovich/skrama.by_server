@@ -2,24 +2,23 @@ import { Schema, model } from "mongoose";
 import { IProductColor } from "../types/IProductColor";
 
 const ProductColorSchema: Schema = new Schema<IProductColor>({
-  name: {
+  title: {
     type: String,
     required: true,
-    unique: true,
   },
   coverImage: {
     type: String,
     required: true,
     default: '',
   },
+  productID: {
+    type: Schema.Types.ObjectId,
+    ref: 'Product',
+    required: true,
+  },
   typeID: {
     type: Schema.Types.ObjectId,
     ref: 'Type',
-    required: true,
-  },
-  brandID: {
-    type: Schema.Types.ObjectId,
-    ref: 'Brand',
     required: true,
   },
 },

@@ -1,8 +1,8 @@
 import { Document, Schema } from "mongoose";
 
 export interface IProductColor extends Document {
-  name: string,
+  title: string,
   coverImage: string,
+  productID: Schema.Types.ObjectId,
   typeID: Schema.Types.ObjectId,
-  brandID: Schema.Types.ObjectId,
 }

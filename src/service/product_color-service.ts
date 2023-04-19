@@ -11,8 +11,8 @@ class ProductColorService {
     return await product_colorModel.findOne({value});
   };
 
-  async getProductColorByID(id: string) {
-    return await product_colorModel.findById(id);
+  async getProductColorsByProductID(id: string) {
+    return await product_colorModel.find({productID: id});
   };
 
   async getAllProductColors() {
