@@ -27,9 +27,9 @@ class ProductColorController {
     }
   };
 
-  async getProductColorsByProductID(req: Request<{ id: string }>, res: Response, next: NextFunction) {
+  async getProductColorsByProductID(req: Request<{ productID: string }>, res: Response, next: NextFunction) {
     try {
-      const color = await product_colorService.getProductColorsByProductID(req.params.id);
+      const color = await product_colorService.getProductColorsByProductID(req.params.productID);
       return res.json(color);
     } catch (error) {
       next(error);
