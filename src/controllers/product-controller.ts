@@ -48,7 +48,12 @@ class ProductController {
   async getAllProducts(req: Request, res: Response, next: NextFunction) {
     try {
       const products = await productService.getAllProducts(req);
-      return res.json(products);
+      // res.setHeader('max-records', products.length);
+      return res.json({
+        products,
+        maxRecords: products.length,
+      });
+      // return res.json(products);
     } catch (error) {
       next(error);
     }
